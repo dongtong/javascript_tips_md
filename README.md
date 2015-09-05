@@ -136,27 +136,27 @@
       
 - 每条完整语句加上分号
 
-      function test() {
-         return {
-            name: 'foobar'
-         };
-      }
+        function test() {
+           return {
+              name: 'foobar'
+           };
+        }
       
 - 判断使用===
 
-      '1' === 1 // false
-      '' === 0 // false
-      false === '0' // false
-      ' \t\r\n ' === 0 // false
+        '1' === 1 // false
+        '' === 0 // false
+        false === '0' // false
+        ' \t\r\n ' === 0 // false
       
 - 少用wrapper对象
 
-      var num = new Number(8);
-      var str = new String('foobar');
-      console.log(typeof num); //object
-      console.log(typeof str); //object
-      var str2 = 'foobar';
-      str2.replace('foobar', 'hello, world') // str2先转化为内建包装对象
+        var num = new Number(8);
+        var str = new String('foobar');
+        console.log(typeof num); //object
+        console.log(typeof str); //object
+        var str2 = 'foobar';
+        str2.replace('foobar', 'hello, world') // str2先转化为内建包装对象
       
 - 反问自己的属性
   
@@ -170,27 +170,27 @@
       
 - 少用with, eval
 
-      var obj = { name: "foobar"},
-      name = "helloworld";
+        var obj = { name: "foobar"},
+        name = "helloworld";
 
-      with (obj) {
-         console.log(name); // 如果变量和对象属性同名，使用变量 => helloworld
-         occupation = "IT"; // 对象无法带着这个属性出去，但是它自己可以出去
-      }
+        with (obj) {
+           console.log(name); // 如果变量和对象属性同名，使用变量 => helloworld
+           occupation = "IT"; // 对象无法带着这个属性出去，但是它自己可以出去
+        }
 
-      console.log(obj.occupation); // undefined;
-      console.log(occupation); // IT
+        console.log(obj.occupation); // undefined;
+        console.log(occupation); // IT
 
-      eval('console.log("Hello, World")'); //可以执行javascrtip文本
+        eval('console.log("Hello, World")'); //可以执行javascrtip文本
       
   可以把它们当作救命稻草，但是一定要在可控范围内。
   
   
 - parseInt带上进制
 
-      parseInt("10"); // 10
-      parseInt("010"); // 8， 发现0开头，认为要转成8进制
-      parseInt(val, 10);
+        parseInt("10"); // 10
+        parseInt("010"); // 8， 发现0开头，认为要转成8进制
+        parseInt(val, 10);
       
 - 不要遵守所有规则
 
@@ -210,18 +210,18 @@
   
 - 用户自定义方法名称以动词开头
 
-      function getName(person) {
-      //...
-      }
+        function getName(person) {
+        //...
+        }
 
 - 注意在闭包内部引入闭包外部的变量，当闭包执行完成后，对象无法被GC回收
 
-      var a = function() {
-          var numArr = [1,2,3];
-          return function() {
-             return numArr;
-          };
-      }();
+        var a = function() {
+            var numArr = [1,2,3];
+            return function() {
+               return numArr;
+            };
+        }();
 
 
 - 如果在一个div下面有多个按钮，或者a需要侦听事件, 请直接在这个div上面监听事件.
@@ -246,21 +246,21 @@
 
 - 短路运算符
 
-      var class = {
-        _addMember: function(member){
+        var class = {
+          _addMember: function(member){
                       this.members = this.members ? this.members : [];
                       this.members.push(member);
                     }
-      };
+        };
       
-      //=>
+        //=>
       
-      var class = {
-        _addMember: function(member){
+        var class = {
+          _addMember: function(member){
                       this.members = this.members || [];
                       this.members.push(member);
                     }
-      };
+        };
       
 - switch语句使用
 
@@ -340,51 +340,51 @@
       
 - 使用join方法链接字符
 
-      var strs = ['a', 'b', 'c'],
-          len = strs.length,
-          result = '';
+        var strs = ['a', 'b', 'c'],
+            len = strs.length,
+            result = '';
 
-      for(var i = 0; i < len; i++) {
-          result += strs[i];
-      }
+        for(var i = 0; i < len; i++) {
+            result += strs[i];
+        }
       
-      //=>
+        //=>
       
-      var result = strs.join('');
+        var result = strs.join('');
       
 - 获取当前毫秒时间
 
-      +new Date()
+        +new Date()
       
 - jQuery, Zepto级连调用
 
-      $obj.removeClass("xxxx").addClass("xxx");
-      $("#xxxx").unbind("click").bind('click',function() {
-         //...
-      });
+        $obj.removeClass("xxxx").addClass("xxx");
+        $("#xxxx").unbind("click").bind('click',function() {
+           //...
+        });
 
 - URL中变量要转义
 
-      location.href = "./error.html?errorMsg=" + encodeURIComponent(someVariable);
+        location.href = "./error.html?errorMsg=" + encodeURIComponent(someVariable);
       
 - jQuery, Zepto 合并或者更新对象
 
-	  obj["a"] = a;
-      obj["b"] = b;
+	    obj["a"] = a;
+        obj["b"] = b;
 
-      //=>
+        //=>
 
-	  obj = $.extend(obj, {
-         a: xxxx
-         //...
+	    obj = $.extend(obj, {
+           a: xxxx
+           //...
          
 - 尽量使用字面量对象声明的对象
 
-	  var arr = new Array();
+	    var arr = new Array();
 
-      //=>
+        //=>
 
-      var arr = [];
+        var arr = [];
 
       
 - 自动化构建工具
